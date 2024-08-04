@@ -14,5 +14,27 @@ execute_process(
   COMMAND_ERROR_IS_FATAL ANY
 )
 
-include($ENV{IDF_PATH}/tools/cmake/project.cmake)
+
+
+if(NOT DEFINED IDF_TARGET)
+	add_compile_definitions(TARGET_LINUX)
+	set(IDF_TARGET "linux")
+endif()
+
+if(NOT IDF_TARGET STREQUAL "linux")
+	include($ENV{IDF_PATH}/tools/cmake/project.cmake)
+else()
+    	set(SOURCES
+        	main/main.cpp
+        	# Add more source files here
+    	)
+
+    	# Add the executable for the linux target
+    	add_executable(embeded-sdk-linux ${SOURCES})
+endif()
 project(src)
+
+
+
+
+

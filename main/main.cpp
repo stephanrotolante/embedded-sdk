@@ -1,3 +1,13 @@
+#ifdef TARGET_LINUX
+
+#include <iostream>
+
+int main() {
+	std::cout << "Hello, world" << std::endl;
+}
+
+#else
+
 #include "nvs_flash.h"
 
 extern void app_wifi(void);
@@ -19,3 +29,4 @@ void app_main(void) {
   app_wifi();
   app_websocket();
 }
+#endif

@@ -19,6 +19,19 @@ Docs and guides at [https://docs.livekit.io](https://docs.livekit.io).
 
 `protoc` must be in your path with `protobufc` installed.
 
+#### Linux/OSX Builds
+
+Make a build directory
+* `mkdir build`
+
+Change into that directory and trigger cmake
+* `cmake ../ ./`
+
+After cmake configures all the build tooling, run make
+* `make`
+
+#### ESP Builds
+
 Make sure that `set-target` is the platform you are targetting. Example below is an `esp32s3`
 * `idf.py set-target esp32s3`
 
